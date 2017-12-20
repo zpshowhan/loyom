@@ -14,7 +14,7 @@ import com.loyom.rank.websocket.ChatWebSocketHandler;
 import com.loyom.rank.websocket.GameHandler;
 
 @Configuration
-//@EnableWebMvc
+//@EnableWebMvc  这里不要加这个注解，否则static 和一些默认的也会失效
 @EnableWebSocket
 public class WebSocketConfig extends WebMvcConfigurerAdapter implements WebSocketConfigurer {
 
