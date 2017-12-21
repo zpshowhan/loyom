@@ -69,9 +69,9 @@ public class GameHandler extends AbstractWebSocketHandler {
     @Override
     public void handleTransportError(WebSocketSession session, Throwable exception) throws Exception {
 	
-	if(session.isOpen()){
-    	    session.close();
-    	}
+	//if(session.isOpen()){
+    	//    session.close();
+    	//}
     	log.info("传出错误的处理");
         log.info(session.getId());
         log.info(exception.getMessage());
