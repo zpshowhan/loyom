@@ -69,10 +69,13 @@ public class GameHandler extends AbstractWebSocketHandler {
     @Override
     public void handleTransportError(WebSocketSession session, Throwable exception) throws Exception {
 	
-    	log.info("ping-pong");
+	if(session.isOpen()){
+    	    session.close();
+    	}
+    	log.info("传出错误的处理");
         log.info(session.getId());
         log.info(exception.getMessage());
-        session.close();
+        
     }
 
     /**
@@ -85,6 +88,9 @@ public class GameHandler extends AbstractWebSocketHandler {
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
     	
+	if(session.isOpen()){
+    		session.close(status);
+    	}
     	log.info("连接关闭的处理");
         log.info(session.getId());
         log.info(status.getReason());
